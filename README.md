@@ -83,6 +83,43 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
+## tf plan
+
+```
+tf plan
+```
+
+Output
+
+```
+╷
+│ Error: Invalid provider configuration
+│
+│ Provider "registry.terraform.io/cloudflare/cloudflare" requires explicit configuration. Add a provider block to the root
+│ module and configure the provider's required arguments as described in the provider documentation.
+│
+╵
+╷
+│ Error: Invalid combination of arguments
+│
+│   with provider["registry.terraform.io/cloudflare/cloudflare"],
+│   on <empty> line 0:
+│   (source code not available)
+│
+│ "api_key": one of `api_key,api_token` must be specified
+╵
+╷
+│ Error: Invalid function argument
+│
+│   on main.tf line 7, in locals:
+│    7:   records_enabled = module.this.enabled && length(var.records) > 0
+│     ├────────────────
+│     │ var.records is null
+│
+│ Invalid value for "value" parameter: argument must not be null.
+╵
+```
+
 <!-- markdownlint-disable -->
 
 # terraform-cloudflare-zone [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-cloudflare-zone.svg)](https://github.com/cloudposse/terraform-cloudflare-zone/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
